@@ -2,25 +2,19 @@
 
 import { motion } from 'framer-motion';
 import { Sun, Moon } from 'lucide-react';
-import { useState } from 'react';
+import { useTheme } from './ThemeProvider';
 
 export default function ThemeToggle() {
-  // Portfolio is dark-only by design, but toggle can switch accent colors
-  const [isDark, setIsDark] = useState(true);
-
-  const toggle = () => {
-    setIsDark(!isDark);
-    // In a real implementation, this would toggle the theme
-    // For now it's a visual toggle
-  };
+  const { theme, toggleTheme } = useTheme();
+  const isDark = theme === 'dark';
 
   return (
     <motion.button
-      onClick={toggle}
+      onClick={toggleTheme}
       className="relative w-10 h-10 rounded-full glass-card flex items-center justify-center text-[#94a3b8] hover:text-[#00d4ff] transition-colors"
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
-      aria-label="Toggle theme"
+      aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
     >
       <motion.div
         animate={{ rotate: isDark ? 0 : 180, opacity: isDark ? 1 : 0 }}

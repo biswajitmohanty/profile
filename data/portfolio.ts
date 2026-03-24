@@ -242,3 +242,78 @@ export const testimonials = [
     avatar: 'DC',
   },
 ];
+
+export const blogPosts = [
+  {
+    id: 1,
+    title: 'Migrating to Cloud-Native Architecture: Lessons from a 40% Scalability Gain',
+    excerpt:
+      'Deep dive into how we migrated a major fraud-detection platform to AWS, achieving 40% scalability improvement through microservices decomposition and event-driven design patterns.',
+    category: 'Cloud Architecture',
+    tags: ['AWS', 'Microservices', 'Cloud-Native'],
+    readTime: '8 min read',
+    date: 'Feb 2026',
+    color: '#00d4ff',
+    featured: true,
+  },
+  {
+    id: 2,
+    title: 'CI/CD Optimization: From 10-Day to 2-Day Release Cycles',
+    excerpt:
+      'A step-by-step guide to cutting deployment time by 80% using Jenkins pipelines, automated testing gates, Docker multi-stage builds, and blue-green deployment strategies.',
+    category: 'DevOps',
+    tags: ['Jenkins', 'Docker', 'CI/CD'],
+    readTime: '6 min read',
+    date: 'Jan 2026',
+    color: '#7c3aed',
+    featured: false,
+  },
+  {
+    id: 3,
+    title: 'Spring Boot Microservices: Resilience Patterns That Work in Production',
+    excerpt:
+      'Real-world experience implementing Circuit Breaker, Bulkhead, and Retry patterns using Resilience4j to handle partial failures gracefully in high-volume financial systems.',
+    category: 'Backend',
+    tags: ['Spring Boot', 'Java', 'Resilience4j'],
+    readTime: '10 min read',
+    date: 'Dec 2025',
+    color: '#10b981',
+    featured: false,
+  },
+  {
+    id: 4,
+    title: "React Native vs Flutter in 2025: A Technical Lead's Honest Assessment",
+    excerpt:
+      'After leading teams shipping production apps in both frameworks, here is the unfiltered truth about performance, developer experience, and when to pick one over the other.',
+    category: 'Mobile',
+    tags: ['React Native', 'Flutter', 'Mobile Dev'],
+    readTime: '7 min read',
+    date: 'Nov 2025',
+    color: '#f59e0b',
+    featured: false,
+  },
+  {
+    id: 5,
+    title: 'Designing for Scale: Event-Driven Architecture with Apache Kafka',
+    excerpt:
+      'From message ordering to exactly-once semantics — practical patterns for building event-driven microservices that handle millions of transactions without breaking a sweat.',
+    category: 'Architecture',
+    tags: ['Kafka', 'Event-Driven', 'Distributed Systems'],
+    readTime: '9 min read',
+    date: 'Oct 2025',
+    color: '#ec4899',
+    featured: false,
+  },
+  {
+    id: 6,
+    title: 'Mentoring Engineers: Building a Culture of Architectural Excellence',
+    excerpt:
+      'Lessons from growing a team of 12 engineers — how code reviews, architecture decision records, and structured pairing elevate the entire team\'s technical craft.',
+    category: 'Leadership',
+    tags: ['Team Building', 'Architecture', 'Mentoring'],
+    readTime: '5 min read',
+    date: 'Sep 2025',
+    color: '#06b6d4',
+    featured: false,
+  },
+];

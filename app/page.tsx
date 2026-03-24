@@ -9,6 +9,7 @@ import Experience from '@/components/sections/Experience';
 import Projects from '@/components/sections/Projects';
 import Services from '@/components/sections/Services';
 import Testimonials from '@/components/sections/Testimonials';
+import Blog from '@/components/sections/Blog';
 import Contact from '@/components/sections/Contact';
 import Footer from '@/components/sections/Footer';
 import ScrollProgress from '@/components/ui/ScrollProgress';
@@ -30,6 +31,7 @@ export default function Home() {
       <Projects />
       <Services />
       <Testimonials />
+      <Blog />
       <Contact />
       <Footer />
     </main>

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Inter, Fira_Code } from 'next/font/google';
+import ThemeProvider from '@/components/ui/ThemeProvider';
 import './globals.css';
 
 const inter = Inter({
@@ -93,16 +94,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${firaCode.variable} dark`} suppressHydrationWarning>
+    <html lang="en" className={`${inter.variable} ${firaCode.variable}`} suppressHydrationWarning>
       <head>
+        {/* Prevent flash of unstyled content — set theme class before React hydrates */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var t=localStorage.getItem('portfolio-theme')||'dark';document.documentElement.classList.add(t);})();`,
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
-      <body className="bg-[#0a0a1a] text-white antialiased" suppressHydrationWarning>
-        {children}
+      <body className="antialiased" suppressHydrationWarning>
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );
