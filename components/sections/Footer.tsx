@@ -1,8 +1,26 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, ArrowUp, Heart } from 'lucide-react';
+import { Mail, Linkedin, Github, ArrowUp, Heart } from 'lucide-react';
 import { personalInfo } from '@/data/portfolio';
+
+const socialLinks = [
+  {
+    icon: Github,
+    href: 'https://github.com/biswajit-mohanty',
+    label: 'GitHub',
+  },
+  {
+    icon: Linkedin,
+    href: `https://${personalInfo.linkedin}`,
+    label: 'LinkedIn',
+  },
+  {
+    icon: Mail,
+    href: `mailto:${personalInfo.email}`,
+    label: 'Email',
+  },
+];
 
 const navLinks = [
   { label: 'About', href: '#about' },
@@ -13,109 +31,125 @@ const navLinks = [
   { label: 'Contact', href: '#contact' },
 ];
 
-const socialLinks = [
-  { icon: Github, href: 'https://github.com/biswajit-mohanty', label: 'GitHub' },
-  { icon: Linkedin, href: `https://${personalInfo.linkedin}`, label: 'LinkedIn' },
-  { icon: Mail, href: `mailto:${personalInfo.email}`, label: 'Email' },
-];
-
 export default function Footer() {
-  const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
-    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+  const handleNavClick = (href: string) => {
+    const id = href.slice(1);
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
-    <footer className="relative bg-[#0a0a1a] border-t border-white/5 py-12">
+    <footer className="bg-[#0a0a1a] border-t border-white/5 relative overflow-hidden">
+      {/* Background */}
       <div className="absolute inset-0 bg-grid opacity-10" />
+      <div className="absolute left-1/2 bottom-0 w-96 h-48 -translate-x-1/2 rounded-full bg-[#00d4ff]/3 blur-[80px]" />
 
       <div className="container-custom relative z-10">
         {/* Main footer content */}
-        <div className="flex flex-col items-center text-center gap-8 mb-10">
+        <div className="py-12 grid md:grid-cols-3 gap-10">
           {/* Brand */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="text-2xl font-bold gradient-text mb-2">Biswajit Mohanty</div>
-            <p className="text-[#64748b] text-sm">Technical Lead · Full-Stack Architect · Cloud Engineer</p>
-          </motion.div>
+          <div>
+            <div className="text-2xl font-bold mb-3">
+              <span className="gradient-text">BM</span>
+            </div>
+            <p className="text-[#64748b] text-sm leading-relaxed max-w-xs">
+              Technical Lead & Full-Stack Architect building scalable enterprise systems with 10+ years of expertise.
+            </p>
+            <div className="flex gap-3 mt-5">
+              {socialLinks.map((social) => {
+                const Icon = social.icon;
+                return (
+                  <motion.a
+                    key={social.label}
+                    href={social.href}
+                    target={social.href.startsWith('http') ? '_blank' : undefined}
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
+                    className="w-9 h-9 rounded-lg glass-card flex items-center justify-center text-[#64748b] hover:text-[#00d4ff] hover:border-[#00d4ff]/30 transition-all"
+                    whileHover={{ scale: 1.1, y: -2 }}
+                    whileTap={{ scale: 0.9 }}
+                  >
+                    <Icon size={16} />
+                  </motion.a>
+                );
+              })}
+            </div>
+          </div>
 
-          {/* Nav links */}
-          <motion.nav
-            className="flex flex-wrap justify-center gap-x-6 gap-y-2"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            aria-label="Footer navigation"
-          >
-            {navLinks.map((link) => (
+          {/* Quick links */}
+          <div>
+            <h4 className="text-sm font-semibold text-white mb-4">Quick Links</h4>
+            <ul className="space-y-2">
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  <button
+                    onClick={() => handleNavClick(link.href)}
+                    className="text-[#64748b] hover:text-[#00d4ff] text-sm transition-colors animated-underline"
+                  >
+                    {link.label}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact info */}
+          <div>
+            <h4 className="text-sm font-semibold text-white mb-4">Get In Touch</h4>
+            <div className="space-y-2">
               <a
-                key={link.href}
-                href={link.href}
-                onClick={(e) => handleNavClick(e, link.href)}
-                className="text-sm text-[#64748b] hover:text-[#00d4ff] transition-colors animated-underline"
+                href={`mailto:${personalInfo.email}`}
+                className="flex items-center gap-2 text-[#64748b] hover:text-[#00d4ff] text-sm transition-colors"
               >
-                {link.label}
+                <Mail size={14} />
+                {personalInfo.email}
               </a>
-            ))}
-          </motion.nav>
+              <a
+                href={`https://${personalInfo.linkedin}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-[#64748b] hover:text-[#00d4ff] text-sm transition-colors"
+              >
+                <Linkedin size={14} />
+                {personalInfo.linkedin}
+              </a>
+            </div>
 
-          {/* Social links */}
-          <motion.div
-            className="flex items-center gap-4"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-          >
-            {socialLinks.map((social) => {
-              const Icon = social.icon;
-              return (
-                <motion.a
-                  key={social.label}
-                  href={social.href}
-                  target={social.href.startsWith('http') ? '_blank' : undefined}
-                  rel="noopener noreferrer"
-                  aria-label={social.label}
-                  className="w-10 h-10 rounded-xl glass-card flex items-center justify-center text-[#64748b] hover:text-[#00d4ff] hover:border-[#00d4ff]/30 transition-all"
-                  whileHover={{ scale: 1.1, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Icon size={18} />
-                </motion.a>
-              );
-            })}
-          </motion.div>
+            <div className="mt-5 p-3 rounded-xl bg-green-500/10 border border-green-500/20">
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+                <span className="text-green-400 text-xs font-medium">Available for projects</span>
+              </div>
+            </div>
+          </div>
         </div>
 
-        {/* Divider */}
-        <div className="h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent mb-8" />
-
         {/* Bottom bar */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#64748b]">
-          <p>
-            © {new Date().getFullYear()} Biswajit Mohanty. All rights reserved.
-          </p>
-
-          <p className="flex items-center gap-1.5">
-            Built with React &amp; <Heart size={12} className="text-red-400 fill-red-400" /> by Biswajit
+        <div className="py-5 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-[#64748b] text-xs flex items-center gap-1.5">
+            &copy; {new Date().getFullYear()} {personalInfo.name}. Built with
+            <Heart size={12} className="text-red-400 inline" />
+            using Next.js & Tailwind CSS
           </p>
 
           {/* Back to top */}
           <motion.button
             onClick={scrollToTop}
-            className="flex items-center gap-1.5 text-[#64748b] hover:text-[#00d4ff] transition-colors"
-            whileHover={{ y: -2 }}
+            className="flex items-center gap-2 text-[#64748b] hover:text-[#00d4ff] text-xs transition-colors"
+            whileHover={{ scale: 1.05, y: -1 }}
+            whileTap={{ scale: 0.95 }}
             aria-label="Back to top"
           >
-            <ArrowUp size={14} />
-            Back to top
+            <span>Back to top</span>
+            <div className="w-6 h-6 rounded-full glass-card flex items-center justify-center">
+              <ArrowUp size={12} />
+            </div>
           </motion.button>
         </div>
       </div>
