@@ -7,7 +7,7 @@ import { personalInfo } from '@/data/portfolio';
 const socialLinks = [
   {
     icon: Github,
-    href: 'https://github.com/biswajit-mohanty',
+    href: 'https://github.com/biswajitmohanty',
     label: 'GitHub',
   },
   {
