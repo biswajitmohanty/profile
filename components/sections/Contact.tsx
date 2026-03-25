@@ -32,8 +32,8 @@ const contactItems = [
   {
     icon: Github,
     label: 'GitHub',
-    value: 'github.com/biswajit-mohanty',
-    href: 'https://github.com/biswajit-mohanty',
+    value: 'github.com/biswajitmohanty',
+    href: 'https://github.com/biswajitmohanty',
     color: '#10b981',
   },
   {
