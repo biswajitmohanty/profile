@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { Clock, Calendar, ArrowUpRight, Tag } from 'lucide-react';
 import { blogPosts } from '@/data/portfolio';
-import useIntersectionObserver from '@/hooks/useIntersectionObserver';
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
 interface BlogPost {
   id: number;
