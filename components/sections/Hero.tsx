@@ -154,14 +154,14 @@ export default function Hero() {
 
             {/* CTA Buttons */}
             <motion.div
-              className="flex flex-wrap gap-4 mb-10"
+              className="flex flex-row flex-nowrap gap-3 mb-10"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.6 }}
             >
               <motion.button
                 onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-                className="px-8 py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-[#00d4ff] to-[#7c3aed] hover:opacity-90 transition-all shadow-lg shadow-[#00d4ff]/20"
+                className="px-5 sm:px-8 py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-[#00d4ff] to-[#7c3aed] hover:opacity-90 transition-all shadow-lg shadow-[#00d4ff]/20"
                 whileHover={{ scale: 1.05, boxShadow: '0 0 25px rgba(0,212,255,0.4)' }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -169,7 +169,7 @@ export default function Hero() {
               </motion.button>
               <motion.button
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                className="px-8 py-3 rounded-xl font-semibold text-[#00d4ff] glass-card hover:border-[#00d4ff]/50 transition-all"
+                className="px-5 sm:px-8 py-3 rounded-xl font-semibold text-[#00d4ff] glass-card hover:border-[#00d4ff]/50 transition-all"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
