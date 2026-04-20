@@ -30,8 +30,8 @@ export default function Home() {
       <Experience />
       <Projects />
       <Services />
-      <Testimonials />
-      <Blog />
+      {/* <Testimonials /> */}
+      {/* <Blog /> */}
       <Contact />
       <Footer />
     </main>
