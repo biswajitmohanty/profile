@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Inter, Fira_Code } from 'next/font/google';
+import { GoogleAnalytics } from '@next/third-parties/google';
 import ThemeProvider from '@/components/ui/ThemeProvider';
 import './globals.css';
 
@@ -111,6 +112,9 @@ export default function RootLayout({
       <body className="antialiased" suppressHydrationWarning>
         <ThemeProvider>{children}</ThemeProvider>
       </body>
+      {process.env.NEXT_PUBLIC_GA_ID && (
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+      )}
     </html>
   );
 }

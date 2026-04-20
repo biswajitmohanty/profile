@@ -115,7 +115,7 @@ export default function Contact() {
         <div className="grid lg:grid-cols-5 gap-10">
           {/* Left — contact info */}
           <motion.div
-            className="lg:col-span-2 space-y-6"
+            className="lg:col-span-5 space-y-6 max-w-lg mx-auto w-full"
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-100px' }}
@@ -177,9 +177,9 @@ export default function Contact() {
             </div>
           </motion.div>
 
-          {/* Right — form */}
+          {/* Right — form (hidden) */}
           <motion.div
-            className="lg:col-span-3"
+            className="lg:col-span-3 hidden"
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-100px' }}
