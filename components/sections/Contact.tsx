@@ -69,9 +69,12 @@ export default function Contact() {
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
     try {
-      // Simulate form submission (replace with EmailJS/Formspree in production)
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      console.log('Form data:', data);
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) throw new Error('Send failed');
       setSubmitStatus('success');
       reset();
       setTimeout(() => setSubmitStatus('idle'), 5000);
