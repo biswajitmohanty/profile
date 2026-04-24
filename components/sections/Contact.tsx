@@ -165,16 +165,6 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Availability card */}
-            <div className="glass-card rounded-2xl p-6">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-3 h-3 rounded-full bg-green-400 animate-pulse" />
-                <span className="text-sm font-medium text-white">Available for Work</span>
-              </div>
-              <p className="text-[#94a3b8] text-xs leading-relaxed">
-                Currently accepting freelance projects and consulting engagements. Typical response time: within 24 hours.
-              </p>
-            </div>
           </motion.div>
 
           {/* Right — form (hidden) */}

@@ -121,12 +121,6 @@ export default function Footer() {
               </a>
             </div>
 
-            <div className="mt-5 p-3 rounded-xl bg-green-500/10 border border-green-500/20">
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                <span className="text-green-400 text-xs font-medium">Available for projects</span>
-              </div>
-            </div>
           </div>
         </div>
 
