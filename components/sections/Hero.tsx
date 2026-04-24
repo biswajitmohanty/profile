@@ -83,17 +83,6 @@ export default function Hero() {
         <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
           {/* Left column */}
           <div className="flex flex-col">
-            {/* Status badge */}
-            <motion.div
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card w-fit mb-6"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-              <span className="text-sm text-[#94a3b8]">Available for freelance projects</span>
-            </motion.div>
-
             {/* Greeting */}
             <motion.p
               className="text-[#94a3b8] text-lg mb-2 font-mono"
