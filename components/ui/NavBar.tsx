@@ -12,7 +12,6 @@ const navLinks = [
   { label: 'Experience', href: '#experience' },
   { label: 'Projects', href: '#projects' },
   { label: 'Services', href: '#services' },
-  { label: 'Blog', href: '#blog' },
   { label: 'Contact', href: '#contact' },
 ];
 
@@ -114,17 +113,9 @@ export default function NavBar() {
             ))}
           </ul>
 
-          {/* CTA + Theme Toggle */}
+          {/* Theme Toggle */}
           <div className="hidden md:flex items-center gap-3">
             <ThemeToggle />
-            <motion.button
-              onClick={() => handleNavClick('#contact')}
-              className="px-5 py-2 rounded-lg text-sm font-semibold bg-gradient-to-r from-[#00d4ff] to-[#7c3aed] text-white hover:opacity-90 transition-opacity"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Hire Me
-            </motion.button>
           </div>
 
           {/* Mobile hamburger */}
@@ -184,16 +175,6 @@ export default function NavBar() {
                 ))}
               </ul>
 
-              <motion.button
-                onClick={() => handleNavClick('#contact')}
-                className="w-full mt-6 px-5 py-3 rounded-lg text-base font-semibold bg-gradient-to-r from-[#00d4ff] to-[#7c3aed] text-white"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Hire Me
-              </motion.button>
             </motion.div>
           </motion.div>
         )}
